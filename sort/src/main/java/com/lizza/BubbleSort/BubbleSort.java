@@ -1,11 +1,9 @@
-package com.lizza;
+package com.lizza.BubbleSort;
 
 import java.util.Arrays;
 
 /**
  * 冒泡排序
- *
- * 1. 从第一个元素开始, 依次比较相邻的两个元素, 如果第一个元素比第二个大, 则进行交换, 直至最后一个元素
  */
 public class BubbleSort {
 
@@ -29,3 +27,4 @@ public class BubbleSort {
         System.out.println(Arrays.toString(array));
     }
 }
+
