@@ -41,15 +41,16 @@ public class Swap {
     }
 
     /**
-     * 3: 0011
-     * 7: 0111
-     * 0011 ^ 0111 = 0100   4
-     * 0100 ^ 0111 = 0011   3
-     * 0100 ^ 0011 = 0111   7
+     * 按位异或计算进行数据交换: 7, 3
+     * 7:   0111
+     * 3:   0011
+     * L    0111 ^ 0011 = 0100  4
+     * R    0100 ^ 0011 = 0111  7
+     * L    0100 ^ 0111 = 0011  3
      */
-    public static void swapByBit(int[] array, int i, int j) {
-        array[i] = array[i] ^ array[j];
-        array[j] = array[i] ^ array[j];
-        array[i] = array[i] ^ array[j];
+    private static void swapByBit(int[] array, int left, int right) {
+        array[left] = array[left] ^ array[right];
+        array[right] = array[left] ^ array[right];
+        array[left] = array[left] ^ array[right];
     }
 }
