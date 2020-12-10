@@ -15,9 +15,11 @@ public class QuickSort {
         while (l <= r) {
             while (array[l] < pivot) l++;
             while (array[r] > pivot) r--;
-            swap(array, l, r);
-            l++;
-            r--;
+            if (l <= r) {
+                swap(array, l, r);
+                l++;
+                r--;
+            }
         }
         if (left < r) quickSort(array, left, r);
         if (l < right) quickSort(array, l, right);
