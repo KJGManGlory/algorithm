@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  * 两数之和
  */
-public class TwoSum {
+public class T01_TwoSum {
 
     public static void main(String[] args){
         int[] array = new int[]{3, 3};
