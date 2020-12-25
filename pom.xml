@@ -12,6 +12,7 @@
         <module>sort</module>
         <module>Merge-Sort</module>
         <module>High-Frequency</module>
+        <module>Sword-Offer</module>
     </modules>
     <packaging>pom</packaging>
 
