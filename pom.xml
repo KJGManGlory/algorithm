@@ -8,11 +8,12 @@
     <artifactId>algorithm</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>stack</module>
-        <module>sort</module>
+        <module>Stack</module>
+        <module>Sort</module>
         <module>Merge-Sort</module>
         <module>High-Frequency</module>
         <module>Sword-Offer</module>
+        <module>Queue</module>
     </modules>
     <packaging>pom</packaging>
 
