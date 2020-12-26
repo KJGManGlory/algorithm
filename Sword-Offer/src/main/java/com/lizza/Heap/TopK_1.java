@@ -1,33 +1,27 @@
-package com.lizza.QuickSort;
+package com.lizza.Heap;
 
 import java.util.Arrays;
 
 /**
- * 快速排序
+ * 快排解决 TopK 问题
  */
-public class QuickSort {
+public class TopK_1 {
 
     public static void quickSort(int[] array, int left, int right) {
-        int l = left;
-        int r = right;
-        // 选取基准
-        int pivot = array[l];
+        int l = left, r = right, pivot = array[l];
 
         while (l <= r) {
-            // 从左边开始遍历, 找到第一个比基准大的元素
             while (array[l] < pivot) l++;
-            // 从右边开始遍历, 找到第一个比基准小的元素
             while (array[r] > pivot) r--;
-            // 将上面步骤中找到的比基准大的元素与比基准小的元素进行交换
             if (l <= r) {
                 swap(array, l, r);
                 l++;
                 r--;
             }
         }
-        // 如果 l 和 r 重合了, 则对分区进行继续查找的工作
-        if (left < r) quickSort(array, left, r);
+
         if (l < right) quickSort(array, l, right);
+        if (r > left) quickSort(array, left, r);
     }
 
     public static void swap(int[] array, int left, int right) {
@@ -36,10 +30,19 @@ public class QuickSort {
         array[right] = temp;
     }
 
+    public static int[] getLeastNumbers(int[] arr, int k) {
+        quickSort(arr, 0, arr.length - 1);
+        int[] result = new int[k];
+        for (int i = 0; i < k; i++) {
+           result[i] = arr[i];
+        }
+        return result;
+    }
+
     public static void main(String[] args){
         int[] array = {3, 44, 38, 5, 47, 15, 36, 26, 27, 2, 46, 4, 19, 50, 48};
-        quickSort(array, 0, array.length - 1);
 
-        System.out.println(Arrays.toString(array));
+
+        System.out.println(Arrays.toString(getLeastNumbers(array, 5)));
     }
 }
