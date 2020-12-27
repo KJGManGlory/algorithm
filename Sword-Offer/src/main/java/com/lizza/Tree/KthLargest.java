@@ -1,14 +1,14 @@
 package com.lizza.Tree;
 
+import javax.swing.tree.TreeNode;
+
 /**
- * 二叉树
- * 三种遍历方式: 先序遍历, 中序遍历, 后序遍历, 层次遍历
- *
- * 先序遍历: 根节点 > 左孩子 > 右孩子
- * 中序遍历: 左孩子 > 根节点 > 右孩子
- * 后续遍历: 左孩子 > 右孩子 > 根节点
+ * 寻找二叉树中
  */
-public class BinaryTree {
+public class KthLargest {
+
+    private static int result = 0;
+    private static int k = 0;
 
     /**
      * 示例树: 01234678
@@ -35,19 +35,21 @@ public class BinaryTree {
         _4.right = new Node(5);
         _8.left = new Node(7);
         _8.right = new Node(9);
+        System.out.println(kthLargest(root, 4));
+    }
+
+    public static int kthLargest(Node root, int k) {
+        KthLargest.k = k;
         traversal(root);
+        return result;
     }
 
     public static void traversal(Node root) {
         if (root == null) return;
-        // 先序遍历
-//        visit(root);
-        traversal(root.left);
-        // 中序遍历
-//         visit(root);
         traversal(root.right);
-        // 后序遍历
-         visit(root);
+        if (k == 0) return;
+        if (--k == 0) result = root.val;
+        traversal(root.left);
     }
 
     public static void visit(Node node) {
