@@ -1,5 +1,8 @@
 package com.lizza.Tree;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
+
 /**
  * 二叉树
  * 三种遍历方式: 先序遍历, 中序遍历, 后序遍历, 层次遍历
@@ -7,6 +10,7 @@ package com.lizza.Tree;
  * 先序遍历: 根节点 > 左孩子 > 右孩子
  * 中序遍历: 左孩子 > 根节点 > 右孩子
  * 后续遍历: 左孩子 > 右孩子 > 根节点
+ * 层序遍历
  */
 public class BinaryTree {
 
@@ -22,6 +26,7 @@ public class BinaryTree {
      * 先序遍历: 64215879
      * 中序遍历: 12456789
      * 后序遍历: 12547986
+     * 层序遍历: 64825791
      */
     public static void main(String[] args){
         Node root = new Node(6);
@@ -35,9 +40,27 @@ public class BinaryTree {
         _4.right = new Node(5);
         _8.left = new Node(7);
         _8.right = new Node(9);
-        traversal(root);
+        levelOrder(root);
     }
 
+    /**
+     * 层序遍历
+     */
+    public static void levelOrder(Node root) {
+        if (root == null) return;
+        Queue<Node> queue = new ArrayDeque<>();
+        queue.add(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            visit(node);
+            if (node.left != null) queue.add(node.left);
+            if (node.right != null) queue.add(node.right);
+        }
+    }
+
+    /**
+     * 先序, 中序, 后序遍历
+     */
     public static void traversal(Node root) {
         if (root == null) return;
         // 先序遍历
