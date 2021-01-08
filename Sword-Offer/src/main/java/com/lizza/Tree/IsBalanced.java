@@ -1,15 +1,13 @@
 package com.lizza.Tree;
 
-import javax.swing.tree.TreeNode;
-
 /**
  * 判断一个二叉树是否是一个平衡二叉树
  */
 public class IsBalanced {
 
     public static void main(String[] args){
-        Node node = Node.getTree();
-        System.out.println(recur(node));
+        TreeNode treeNode = TreeNode.getTree();
+        System.out.println(recur(treeNode));
     }
     /**
      * 二叉树
@@ -21,7 +19,7 @@ public class IsBalanced {
      *   /
      *  1
      */
-    public static int recur(Node root) {
+    public static int recur(TreeNode root) {
         if (root == null) return 0;
         int left = recur(root.left);
         if(left == -1) return -1;

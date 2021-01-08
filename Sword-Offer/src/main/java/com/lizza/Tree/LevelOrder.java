@@ -11,21 +11,21 @@ import java.util.Queue;
 public class LevelOrder {
 
     public static void main(String[] args){
-        System.out.println(levelOrder(Node.getTree()));
+        System.out.println(levelOrder(TreeNode.getTree()));
     }
 
-    public static List<List<Integer>> levelOrder(Node root) {
+    public static List<List<Integer>> levelOrder(TreeNode root) {
         List<List<Integer>> result = new ArrayList<>();
         if (root == null) return result;
-        Queue<Node> queue = new LinkedList<>();
+        Queue<TreeNode> queue = new LinkedList<>();
         queue.add(root);
         while (!queue.isEmpty()) {
             List<Integer> list = new ArrayList<>();
             for (int i = queue.size(); i > 0 ; i--) {
-                Node node = queue.poll();
-                list.add(node.val);
-                if (node.left != null) queue.add(node.left);
-                if (node.right != null) queue.add(node.right);
+                TreeNode treeNode = queue.poll();
+                list.add(treeNode.val);
+                if (treeNode.left != null) queue.add(treeNode.left);
+                if (treeNode.right != null) queue.add(treeNode.right);
             }
             result.add(list);
         }
