@@ -22,9 +22,11 @@ public class ReverseList {
 //    public static ListNode reverseList(ListNode head) {
 //
 //    }
+    static ListNode h;
     public static void reverse(ListNode head) {
-        if (head == null) return;
-        reverse(head.next);
-        result = head;
+        if (head.next != null) {
+            reverse(head.next);
+        }
+        System.out.println(head.value);
     }
 }
